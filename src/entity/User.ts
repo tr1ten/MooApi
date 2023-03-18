@@ -1,6 +1,6 @@
 // USer entity
 
-import { Column, Entity, OneToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn } from "typeorm";
 import { UserType } from "./UserType";
 
 @Entity()
@@ -8,13 +8,18 @@ export class User {
     @PrimaryColumn()
     id: string;
     
-    @Column()
+    @Column({
+        nullable:true
+    })
     photoUrl: string;
 
-    @Column()
+    @Column({
+        nullable:true
+    })
     location: string;
 
     @OneToOne(()=>UserType)
+    @JoinColumn()
     type: UserType;
 
 }

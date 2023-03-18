@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import Item from "./Item";
 
 @Entity()
 export default class ItemType {
@@ -18,5 +19,6 @@ export default class ItemType {
     })
     image: string;
 
-    
+    @OneToMany(type => Item, item => item.type)
+    items: Item[];
 }

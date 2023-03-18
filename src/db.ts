@@ -18,7 +18,8 @@ export const AppDataSource = new DataSource({
     password: env.SQL_PASSWORD,
     database: env.SQL_DATABASE,
     synchronize: true,
-    logging: false,
+    dropSchema: true,
+    logging: true,
     entities: [
        Item,User,ItemType, Seller,Catalogue,UserType
     ],

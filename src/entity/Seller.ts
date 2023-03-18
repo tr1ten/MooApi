@@ -1,17 +1,23 @@
-import { Column, Entity, OneToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn } from "typeorm";
 import Catalogue from "./Catalogue";
 import { User } from "./User";
 
 @Entity()
 export default class Seller {
     @PrimaryColumn()
-    @OneToOne(type => User)
-    id: string;
+    userId: string
 
-    @Column("text")
+    @OneToOne(type => User)
+    @JoinColumn()
+    user: User;
+
+    @Column("text",{
+        nullable: true
+    })
     descroption: string;
 
 
     @OneToOne(type => Catalogue)
+    @JoinColumn()
     catalogue: Catalogue;
 }

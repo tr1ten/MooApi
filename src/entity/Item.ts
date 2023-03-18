@@ -1,13 +1,13 @@
-import { Column, Entity, ManyToOne, OneToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import Catalogue from "./Catalogue";
 import ItemType from "./ItemType";
 
 @Entity()
 export default class Item {
-    @PrimaryColumn()
-    id: string;
+    @PrimaryGeneratedColumn()
+    id: number;
 
-    @OneToOne(type => ItemType)
+    @ManyToOne(type => ItemType, itemType => itemType.items)
     type: ItemType;
 
     @Column()

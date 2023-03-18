@@ -17,7 +17,6 @@ AppDataSource.initialize().then(async connection => {
     const app = express();
     app.use(bodyParser.json());
     app.use(ormMiddleware);
-    app.use(apiErrorHandler);
     // register all application routes
     AppRoutes.forEach(route => {
         app[route.method](route.path, (request: $Request, response: Response, next: Function) => {
@@ -28,6 +27,7 @@ AppDataSource.initialize().then(async connection => {
     });
 
     // run app
+    app.use(apiErrorHandler);
     app.listen(3000);
 
     console.log("Express application is up and running on port 3000");
