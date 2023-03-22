@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "./User";
 
 @Entity()
 export class UserType {
@@ -7,4 +8,8 @@ export class UserType {
 
     @Column()
     label: string
+
+
+    @OneToMany(type => User, user => user.type)
+    users: User[]
 }

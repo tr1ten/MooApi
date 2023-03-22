@@ -7,7 +7,9 @@ export default class Seller {
     @PrimaryColumn()
     userId: string
 
-    @OneToOne(type => User)
+    @OneToOne(type => User,{
+        cascade: true,
+    })
     @JoinColumn()
     user: User;
 
@@ -17,7 +19,7 @@ export default class Seller {
     descroption: string;
 
 
-    @OneToOne(type => Catalogue)
+    @OneToOne(type => Catalogue, catalogue => catalogue.seller)
     @JoinColumn()
     catalogue: Catalogue;
 }

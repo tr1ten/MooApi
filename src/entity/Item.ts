@@ -13,6 +13,11 @@ export default class Item {
     @Column()
     capacity: number;
 
+    @Column({
+        default: 0
+    })
+    price: number;
+
     @ManyToOne(type => Catalogue, catalogue => catalogue.items)
     catalogue: Catalogue;
 

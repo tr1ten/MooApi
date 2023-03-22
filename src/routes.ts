@@ -1,3 +1,4 @@
+import { getSellerItems } from "./controller/GetSellerCatalogue";
 import { postItem } from "./controller/PostItem";
 import {postUser} from "./controller/PostUser";
 
@@ -9,6 +10,11 @@ export const AppRoutes = [
         path: "/user",
         method: "post",
         action: postUser
+    },
+    {
+      path: '/user/catalogue',
+      method: 'get',
+      action: getSellerItems,  
     },
     {
         path:"/item",

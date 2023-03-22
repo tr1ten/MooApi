@@ -7,10 +7,15 @@ export default class Catalogue {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @OneToMany(type => Item, item => item.catalogue)
+    
+    @OneToMany(type => Item, item => item.catalogue,{
+        lazy:false
+    })
     items: Item[];
 
-    @OneToOne(type => Seller)
+    @OneToOne(type => Seller, seller => seller.catalogue,{
+        cascade: true,
+    })
     seller: Seller;
 
 }

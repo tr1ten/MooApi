@@ -20,6 +20,21 @@ const addItemTypes = async () => {
     {
       label: "Cow Milk",
       description: "Milk fetched from cow",
+      image: "https://static9.depositphotos.com/1671840/1150/i/450/depositphotos_11504909-stock-photo-cow-isolated.jpg"
+    },
+    {
+      label: "Buffalo Milk",
+      description: "Milk fetched from buffalo",
+      image: "https://media.istockphoto.com/id/1060986360/photo/the-wild-water-buffalo-with-white-egret.jpg?s=612x612&w=0&k=20&c=CV6PQBwSor5sy1LtIQMHBUBMVUbG0bR2hnYfJ_rFakI="
+    },
+    {
+      label: "Goat Milk",
+      description: "Milk fetched from goat",
+      
+    },
+    {
+      label: "Eggs",
+      description: "Eggs fetched from chicken",
     },
   ];
   return utrep.save(usertypes);

@@ -12,7 +12,7 @@ export async function postUser(
 ){
     const {orm} = req.locals;
     const {id,typeId,location,photoUrl} = req.body;
-
+    console.log("reachivend ",id,typeId,location,photoUrl);
     if(!id || !typeId) throw ApiError.badRequest("Please provide valid details");
     const userTypeRep = orm.getRepository(UserType);
     const userType = await userTypeRep.findOne({where:{id:typeId}});

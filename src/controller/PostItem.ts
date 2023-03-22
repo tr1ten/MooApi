@@ -16,7 +16,9 @@ export async function postItem(
     const {itemTypeId,userId,capacity} = req.body;
     const itemRep = orm.getRepository(Item);
     const userRep = orm.getRepository(Seller);
-    const user = await userRep.findOne({where:{user:userId}});
+    const user = await userRep.findOne({where:{user:userId},
+        relations:["catalogue"]
+    });
     if(!user) return ApiError.badRequest("No Such User exist");
     try{
         const item = itemRep.create({
