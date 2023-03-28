@@ -13,12 +13,14 @@ export async function postItem(
     req: $Request, res: Response
 ){
     const {orm} = req.locals;
-    const {itemTypeId,userId,capacity} = req.body;
+    const {itemTypeId,userId,capacity,price} = req.body;
+    if(!itemTypeId || !userId || !capacity || !price) throw ApiError.badRequest("Please provide valid details");
     const itemRep = orm.getRepository(Item);
-    const userRep = orm.getRepository(Seller);
-    const user = await userRep.findOne({where:{user:userId},
+    const sellerRep = orm.getRepository(Seller);
+    const user = await sellerRep.findOne({where:{userId:userId},
         relations:["catalogue"]
     });
+    console.log("post item user",user);
     if(!user) return ApiError.badRequest("No Such User exist");
     try{
         const item = itemRep.create({
@@ -27,6 +29,7 @@ export async function postItem(
             },
             capacity,
             catalogue:user.catalogue,
+            price
             
         });
         await itemRep.save(item);

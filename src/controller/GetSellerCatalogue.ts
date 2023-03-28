@@ -8,14 +8,16 @@ export async function getSellerItems(
     req: $Request, res: Response
 ){
     const {orm} = req.locals;
-    const {userId} = req.params;
+    const {userId} = req.query;
+    if(!userId) throw ApiError.badRequest("Please provide valid details");
     const sellerRep = orm.getRepository(Seller);
-    const user = await sellerRep.findOne({where:{userId},relations:["catalogue","catalogue.items"]});
+    const user = await sellerRep.findOne({where:{userId:userId as string},relations:["catalogue","catalogue.items",
+    "catalogue.items.type"
+]});
     if(!user) throw ApiError.badRequest("No User found");
+    console.log("getting seller catalogue ",user,userId);
     try{
-        return res.send({
-            catelogue: user.catalogue
-        });
+        return res.send(user.catalogue); 
     }
     catch(e){
         throw ApiError.internal("Erorr while getting items for user "+e);

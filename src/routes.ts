@@ -1,3 +1,4 @@
+import { getItemTypes } from "./controller/GetItemType";
 import { getSellerItems } from "./controller/GetSellerCatalogue";
 import { postItem } from "./controller/PostItem";
 import {postUser} from "./controller/PostUser";
@@ -25,5 +26,10 @@ export const AppRoutes = [
         path:"/",
         method:"get",
         action: async (req,res)=>{res.send("Hello World")}
+    },
+    {
+        path:"/itemType",
+        method:"get",
+        action: getItemTypes,
     }
 ];
