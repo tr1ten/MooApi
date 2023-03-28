@@ -1,5 +1,7 @@
+import { getItemInfo } from "./controller/GetItem";
 import { getItemTypes } from "./controller/GetItemType";
 import { getSellerItems } from "./controller/GetSellerCatalogue";
+import { deleteItem } from "./controller/PostDeleteItem";
 import { postItem } from "./controller/PostItem";
 import {postUser} from "./controller/PostUser";
 
@@ -23,6 +25,11 @@ export const AppRoutes = [
         action:postItem
     },
     {
+        path:"/item",
+        method:"get",
+        action: getItemInfo,
+    },
+    {
         path:"/",
         method:"get",
         action: async (req,res)=>{res.send("Hello World")}
@@ -31,5 +38,10 @@ export const AppRoutes = [
         path:"/itemType",
         method:"get",
         action: getItemTypes,
+    },
+    {
+        path:"/item/delete",
+        method:"post",
+        action: deleteItem
     }
 ];

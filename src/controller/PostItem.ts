@@ -13,7 +13,7 @@ export async function postItem(
     req: $Request, res: Response
 ){
     const {orm} = req.locals;
-    const {itemTypeId,userId,capacity,price} = req.body;
+    const {itemTypeId,userId,capacity,price,id} = req.body;
     if(!itemTypeId || !userId || !capacity || !price) throw ApiError.badRequest("Please provide valid details");
     const itemRep = orm.getRepository(Item);
     const sellerRep = orm.getRepository(Seller);
@@ -29,6 +29,7 @@ export async function postItem(
             },
             capacity,
             catalogue:user.catalogue,
+            id,
             price
             
         });
