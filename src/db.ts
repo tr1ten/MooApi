@@ -21,7 +21,7 @@ export const AppDataSource = new DataSource({
     // dropSchema: true,
     logging: true,
     entities: [
-       Item,User,ItemType, Seller,Catalogue,UserType
+        __dirname + "/entity/*.ts"
     ],
     migrations: [
         __dirname + "/migration/*.ts"

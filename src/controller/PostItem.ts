@@ -23,17 +23,21 @@ export async function postItem(
     console.log("post item user",user);
     if(!user) return ApiError.badRequest("No Such User exist");
     try{
-        const item = itemRep.create({
+        const item = ({
             type:{
                 id:itemTypeId
             },
             capacity,
             catalogue:user.catalogue,
-            id,
             price
             
         });
-        await itemRep.save(item);
+        if(!id){
+            await itemRep.save(item);
+        }
+        else{
+            await itemRep.update(id,item);
+        }
         return res.send({
             item
         });
