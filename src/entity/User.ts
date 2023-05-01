@@ -7,13 +7,10 @@ import { UserType } from "./UserType";
 export class User {
     @PrimaryColumn()
     id: string;
-    
-
     @Column({
         nullable:true
     })
     location: string;
-
     @ManyToOne(()=>UserType , userType => userType.users,{
          cascade: true,
     })

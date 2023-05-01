@@ -19,7 +19,7 @@ export const AppDataSource = new DataSource({
     database: env.SQL_DATABASE,
     synchronize: true,
     // dropSchema: true,
-    logging: true,
+    logging: false,
     entities: [
         __dirname + "/entity/*.ts"
     ],

@@ -17,17 +17,17 @@ export default class Subscription {
     @Column()
     quantity: number;
 
+    
+    @ManyToOne(()=> Buyer)
+    @JoinColumn()
+    buyer: Buyer;
+    
     @CreateDateColumn(
         {
             type: "timestamp",
             default: () => "CURRENT_TIMESTAMP(6)",
         }
     )
-
-    @ManyToOne(()=> Buyer)
-    @JoinColumn()
-    buyer: Buyer;
-
     createdAt: Date;
 
     @OneToMany(()=> Payment, payment => payment.subscription)

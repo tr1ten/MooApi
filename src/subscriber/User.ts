@@ -8,6 +8,7 @@ import {
   } from "typeorm";
 import Seller from "../entity/Seller";
 import {User} from "../entity/User";
+import { Buyer } from "../entity/Buyer";
   
   @EventSubscriber()
   export class UserSubscriber implements EntitySubscriberInterface<User> {
@@ -18,10 +19,20 @@ import {User} from "../entity/User";
       return User;
     }
     async afterInsert(event: InsertEvent<User>): Promise<any> {
-      const seller:Seller = new Seller();
-      seller.userId = event.entity.id;
-      seller.user = event.entity;
-      await event.manager.getRepository(Seller).save(seller);
+      if(parseInt(event.entity.type as any)=== 1){
+        const seller:Seller = new Seller();
+        seller.userId = event.entity.id;
+        seller.user = event.entity;
+        console.log("seller ",seller);
+        await event.manager.getRepository(Seller).save(seller);
+      }
+      else {
+        const buyer:Buyer = new Buyer();
+        buyer.userId = event.entity.id;
+        buyer.user = event.entity;
+        console.log("buyer ",buyer);
+        await event.manager.getRepository(Buyer).save(buyer);
+      }
     }
   }
   

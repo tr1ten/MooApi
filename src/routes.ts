@@ -1,6 +1,8 @@
 import { getItemInfo } from "./controller/GetItem";
 import { getItemTypes } from "./controller/GetItemType";
+import { getNearBySellerItems } from "./controller/GetNearBySellerItems";
 import { getSellerItems } from "./controller/GetSellerCatalogue";
+import { getUser } from "./controller/GetUser";
 import { deleteItem } from "./controller/PostDeleteItem";
 import { postItem } from "./controller/PostItem";
 import {postUser} from "./controller/PostUser";
@@ -13,6 +15,11 @@ export const AppRoutes = [
         path: "/user",
         method: "post",
         action: postUser
+    },
+    {
+        path: "/user",
+        method: "get",
+        action: getUser
     },
     {
       path: '/user/catalogue',
@@ -43,5 +50,10 @@ export const AppRoutes = [
         path:"/item/delete",
         method:"post",
         action: deleteItem
+    },
+    {
+        path: "/seller/nearby",
+        method: "get",
+        action: getNearBySellerItems
     }
 ];
