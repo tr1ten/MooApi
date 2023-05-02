@@ -1,7 +1,10 @@
+import { addSubscription } from "./controller/AddSubscriber";
+import { deleteSubscription } from "./controller/DeleteSubscription";
 import { getItemInfo } from "./controller/GetItem";
 import { getItemTypes } from "./controller/GetItemType";
 import { getNearBySellerItems } from "./controller/GetNearBySellerItems";
 import { getSellerItems } from "./controller/GetSellerCatalogue";
+import { getSubscriptions } from "./controller/GetSubscription";
 import { getUser } from "./controller/GetUser";
 import { deleteItem } from "./controller/PostDeleteItem";
 import { postItem } from "./controller/PostItem";
@@ -55,5 +58,20 @@ export const AppRoutes = [
         path: "/seller/nearby",
         method: "get",
         action: getNearBySellerItems
+    },
+    {
+        path: "/subscription",
+        method: "post",
+        action: addSubscription
+    },
+    {
+        path: "/subscription",
+        method: "delete",
+        action: deleteSubscription
+    },
+    {
+        path: "/subscription",
+        method: "get",
+        action: getSubscriptions
     }
 ];
