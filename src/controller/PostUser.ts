@@ -12,13 +12,13 @@ export async function postUser(
 ){
     const {orm} = req.locals;
     const {id,typeId,location,photoUrl} = req.body;
-    console.log("reachivend ",id,typeId,location,photoUrl);
+    // console.log("reachivend ",id,typeId,location,photoUrl);
     if(!id || !typeId) throw ApiError.badRequest("Please provide valid details");
     const userTypeRep = orm.getRepository(UserType);
     const userType = await userTypeRep.findOne({where:{id:typeId}});
     if(!userType) throw ApiError.badRequest("No such user type exist");
     const userRep = orm.getRepository(User);
-    console.log("id",id,"typeId",typeId);
+    // console.log("id",id,"typeId",typeId);
     try{
         const user = userRep.create({
             id,

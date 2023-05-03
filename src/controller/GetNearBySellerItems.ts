@@ -19,7 +19,7 @@ export async function getNearBySellerItems(
     ]
     }); // TODO: add query to find items in same location
     if(!items) throw ApiError.badRequest("No Seller Items found");
-    console.log("getting seller catalogue ",items,userId);
+    // console.log("getting seller catalogue ",items,userId);
     try{
         return res.send(items); 
     }

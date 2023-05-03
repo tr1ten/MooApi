@@ -15,7 +15,7 @@ export async function getSellerItems(
     "catalogue.items.type"
 ]});
     if(!user) throw ApiError.badRequest("No User found");
-    console.log("getting seller catalogue ",user,userId);
+    // console.log("getting seller catalogue ",user,userId);
     try{
         return res.send(user.catalogue); 
     }

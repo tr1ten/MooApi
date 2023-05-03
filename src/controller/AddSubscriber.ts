@@ -11,7 +11,7 @@ import { Buyer } from "../entity/Buyer";
 export async function addSubscription(req: $Request, res: Response) {
     const { orm } = req.locals;
     const { userId, itemId, quantity } = req.body;
-    console.log("reachivend for subscription ", userId, itemId, quantity);
+    // console.log("reachivend for subscription ", userId, itemId, quantity);
     if (!userId || !itemId || !quantity)
         throw ApiError.badRequest("Please provide valid details");
     const itemRep = orm.getRepository(Item);

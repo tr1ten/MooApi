@@ -23,14 +23,14 @@ import { Buyer } from "../entity/Buyer";
         const seller:Seller = new Seller();
         seller.userId = event.entity.id;
         seller.user = event.entity;
-        console.log("seller ",seller);
+        // console.log("seller ",seller);
         await event.manager.getRepository(Seller).save(seller);
       }
       else {
         const buyer:Buyer = new Buyer();
         buyer.userId = event.entity.id;
         buyer.user = event.entity;
-        console.log("buyer ",buyer);
+        // console.log("buyer ",buyer);
         await event.manager.getRepository(Buyer).save(buyer);
       }
     }
