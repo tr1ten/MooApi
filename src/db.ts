@@ -6,6 +6,11 @@ import ItemType from "./entity/ItemType";
 import Seller from "./entity/Seller";
 import { User } from "./entity/User";
 import { UserType } from "./entity/UserType";
+import {Buyer} from "./entity/Buyer";
+import Payment from "./entity/Payment";
+import Subscription from "./entity/Subscription";
+import { SellerSubscriber } from "./subscriber/Seller";
+import { UserSubscriber } from "./subscriber/User";
 require("dotenv").config()
 // environment variables
 const env = process.env
@@ -21,13 +26,13 @@ export const AppDataSource = new DataSource({
     // dropSchema: true,
     logging: false,
     entities: [
-        __dirname + "/entity/*.ts"
+         Catalogue,Item,ItemType,Payment , Seller,Subscription,User,UserType,Buyer
     ],
     migrations: [
         __dirname + "/migration/*.ts"
     ],
     subscribers: [
-        __dirname + "/subscriber/*.ts"
+        SellerSubscriber,UserSubscriber
     ]
 })
 export const DB_OPTIONS = {
