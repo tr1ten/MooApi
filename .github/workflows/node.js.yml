@@ -31,9 +31,9 @@ jobs:
     - name: SSH Remote Commands
       uses: appleboy/ssh-action@v0.1.10
       with:
-        key: ${{GOOGLE_CLOUD_VM_SSH}}
-        host: ${{GOOGLE_CLOUD_VM_IP}}
-        username: ${{GOOGLE_CLOUD_VM_USERNAME}}
+        key: ${{secrets.GOOGLE_CLOUD_VM_SSH}}
+        host: ${{secrets.GOOGLE_CLOUD_VM_IP}}
+        username: ${{secrets.GOOGLE_CLOUD_VM_USERNAME}}
         script: |
           pm2 delete all
           cd /home/g12113113/MooApi
