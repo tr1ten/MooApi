@@ -23,7 +23,8 @@ export async function getSubscriptions(req: $Request, res: Response) {
         } }, relations: ['item',
             'item.type',
             'item.catalogue',
-            'item.catalogue.seller'
+            'item.catalogue.seller',
+            'item.catalogue.seller.user'
     ] });
         return res.send(subscriptions);
     }
@@ -37,7 +38,7 @@ export async function getSubscriptions(req: $Request, res: Response) {
                         userId:userId as any
                     }
                 }
-            } }, relations: ['buyer'] });
+            } }, relations: ['buyer','buyer.user'] });
         return res.send(subscriptions);
     }
 }
