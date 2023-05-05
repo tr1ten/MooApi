@@ -5,6 +5,11 @@ import ItemType from "./ItemType";
 import Payment from "./Payment";
 import Seller from "./Seller";
 
+export enum SubscriptionStatus {
+    PENDING = "pending",
+    ACTIVE = "active",
+    CANCELLED = "cancelled",
+}
 @Entity()
 export default class Subscription {
     @PrimaryGeneratedColumn()
@@ -33,5 +38,10 @@ export default class Subscription {
     @OneToMany(()=> Payment, payment => payment.subscription)
     payments: Payment[];
 
-    
+    @Column(
+        {
+            default: SubscriptionStatus.PENDING
+        }
+    )
+    status: SubscriptionStatus;
 }

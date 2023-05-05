@@ -15,7 +15,8 @@ export async function getNearBySellerItems(
     const itemsRep = orm.getRepository(Item);
     const items = await itemsRep.find({
         relations:["catalogue",
-        "catalogue.seller","type"
+        "catalogue.seller","type",
+        "catalogue.seller.user"
     ]
     }); // TODO: add query to find items in same location
     if(!items) throw ApiError.badRequest("No Seller Items found");

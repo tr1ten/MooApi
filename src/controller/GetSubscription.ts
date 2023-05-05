@@ -14,7 +14,7 @@ export async function getSubscriptions(req: $Request, res: Response) {
     const user = await userRep.findOne({ where: { id: userId as any } ,
         relations:["type"]
     });
-    // console.log("Recieved for subscription ", user);
+    console.log("Recieved for subscription ", user);
     if (!user) throw ApiError.badRequest("No User found");
     if (user.type.label === 'Buyer') {
         const subscriptionRep = orm.getRepository(Subscription);
@@ -38,7 +38,10 @@ export async function getSubscriptions(req: $Request, res: Response) {
                         userId:userId as any
                     }
                 }
-            } }, relations: ['buyer','buyer.user'] });
+            } }, relations: [
+                'item.type',
+            'item.catalogue',
+                'buyer','buyer.user'] });
         return res.send(subscriptions);
     }
 }
