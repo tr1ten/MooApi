@@ -30,11 +30,13 @@ const addItemTypes = async () => {
     {
       label: "Goat Milk",
       description: "Milk fetched from goat",
+      image:"https://backyardgoats.iamcountryside.com/wp-content/uploads/sites/2/2019/03/shutterstock_414901216-e1536954249170.jpg"
       
     },
     {
       label: "Eggs",
       description: "Eggs fetched from chicken",
+      image:"https://cdn.britannica.com/94/151894-050-F72A5317/Brown-eggs.jpg"
     },
   ];
   return utrep.save(usertypes);

@@ -11,7 +11,7 @@ export async function postUser(
     req: $Request, res: Response
 ){
     const {orm} = req.locals;
-    const {id,typeId,location,photoUrl} = req.body;
+    const {id,typeId,location,image,name} = req.body;
     // console.log("reachivend ",id,typeId,location,photoUrl);
     if(!id || !typeId) throw ApiError.badRequest("Please provide valid details");
     const userTypeRep = orm.getRepository(UserType);
@@ -22,7 +22,10 @@ export async function postUser(
     try{
         const user = userRep.create({
             id,
-            type: typeId
+            type: typeId,
+            location,
+            image,
+            name
         });
         await userRep.save(user);
         
