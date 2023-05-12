@@ -15,8 +15,7 @@ export default class Subscription {
     @PrimaryGeneratedColumn()
     id: number;
     
-    @OneToOne(()=>Item)
-    @JoinColumn()
+    @ManyToOne(()=> Item)
     item: Item;
 
     @Column()
@@ -24,7 +23,6 @@ export default class Subscription {
 
     
     @ManyToOne(()=> Buyer)
-    @JoinColumn()
     buyer: Buyer;
     
     @CreateDateColumn(

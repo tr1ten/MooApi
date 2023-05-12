@@ -23,11 +23,10 @@ export async function addSubscription(req: $Request, res: Response) {
     if (!buyer)
         throw ApiError.badRequest("No buyer found");
     const subscriptionRep = orm.getRepository(Subscription);
-    const subs:Partial<Subscription> =  ({
-        item,
-        buyer,
-        quantity,
-    });
+    const subs = new  Subscription();
+    subs.buyer = buyer;
+    subs.item = item;
+    subs.quantity = quantity;
     try {
         await subscriptionRep.save(subs);
         return res.send({

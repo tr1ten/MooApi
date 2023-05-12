@@ -24,7 +24,7 @@ export const AppDataSource = new DataSource({
     database: env.SQL_DATABASE,
     synchronize: true,
     // dropSchema: true,
-    logging: false,
+    // logging: true,
     entities: [
          Catalogue,Item,ItemType,Payment , Seller,Subscription,User,UserType,Buyer
     ],
