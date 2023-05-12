@@ -7,7 +7,6 @@ import { ApiError } from "../error";
 export async function getUser(req:$Request, res:Response) {
     const { orm } = req.locals;
     const { userId } = req.query;
-    console.log(userId,"here ");
     if (!userId)
         throw ApiError.badRequest("Please provide valid details");
     const userRep = orm.getRepository(User);
@@ -16,7 +15,6 @@ export async function getUser(req:$Request, res:Response) {
     ]});
     if (!user)
         throw ApiError.badRequest("No User found");
-    // console.log("getting user info ", user, userId);
     try {
         return res.send(user);
     }

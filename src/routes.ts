@@ -10,6 +10,7 @@ import { deleteItem } from "./controller/PostDeleteItem";
 import { postItem } from "./controller/PostItem";
 import {postUser} from "./controller/PostUser";
 import { UpdateSubscription } from "./controller/UpdateSubscription";
+import { updateUser } from "./controller/UpdateUser";
 
 /**
  * All application routes.
@@ -24,6 +25,11 @@ export const AppRoutes = [
         path: "/user",
         method: "get",
         action: getUser
+    },
+    {
+        path: "/user/update",
+        method: "post",
+        action: updateUser,  
     },
     {
       path: '/user/catalogue',

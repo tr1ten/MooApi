@@ -26,4 +26,9 @@ export class User {
         }
     )
     image: string;
+
+    @Column({
+        default: "This is my bio"
+    })
+    bio: string;
 }
