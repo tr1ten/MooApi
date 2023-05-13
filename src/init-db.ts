@@ -20,23 +20,27 @@ const addItemTypes = async () => {
     {
       label: "Cow Milk",
       description: "Milk fetched from cow",
-      image: "https://cdn-icons-png.flaticon.com/256/1998/1998610.png"
+      image: "https://cdn-icons-png.flaticon.com/256/1998/1998610.png",
+      unit: "litre"
     },
     {
       label: "Buffalo Milk",
       description: "Milk fetched from buffalo",
-      image: "https://cdn-icons-png.flaticon.com/512/1702/1702816.png"
+      image: "https://cdn-icons-png.flaticon.com/512/1702/1702816.png",
+      unit: "litre"
     },
     {
       label: "Goat Milk",
       description: "Milk fetched from goat",
-      image:"https://cdn-icons-png.flaticon.com/512/1998/1998662.png"
+      image:"https://cdn-icons-png.flaticon.com/512/1998/1998662.png",
+      unit: "litre"
       
     },
     {
       label: "Eggs",
       description: "Eggs fetched from chicken",
-      image:"https://cdn-icons-png.flaticon.com/256/2713/2713474.png"
+      image:"https://cdn-icons-png.flaticon.com/256/2713/2713474.png",
+      unit: "egg"
     },
   ];
   return utrep.save(usertypes);

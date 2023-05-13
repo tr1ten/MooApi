@@ -21,4 +21,9 @@ export default class ItemType {
 
     @OneToMany(type => Item, item => item.type)
     items: Item[];
+
+    @Column({
+        default: "item"
+    })
+    unit: string;
 }

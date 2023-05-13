@@ -1,6 +1,7 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import Catalogue from "./Catalogue";
 import ItemType from "./ItemType";
+import Rating from "./Rating";
 
 @Entity()
 export default class Item {
@@ -20,5 +21,9 @@ export default class Item {
 
     @ManyToOne(type => Catalogue, catalogue => catalogue.items)
     catalogue: Catalogue;
+
+    @OneToMany(type => Rating, rating => rating.item)
+    ratings: Rating[];
+    
 
 }

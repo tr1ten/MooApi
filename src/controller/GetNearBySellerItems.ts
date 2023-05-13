@@ -41,6 +41,8 @@ export async function getNearBySellerItems(req: $Request, res: Response) {
       "catalogue.seller",
       "type",
       "catalogue.seller.user",
+      "ratings",
+      "ratings.buyer"
     ],
   }); // TODO: add query to find items in same location
   const [lat, long] = user.location.split(",");

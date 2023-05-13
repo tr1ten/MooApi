@@ -27,4 +27,9 @@ export default class Seller {
     @OneToOne(()=>UserType)
     @JoinColumn()
     type: UserType;
+
+    @Column({
+        default: 1
+    })
+    rating: number;
 }

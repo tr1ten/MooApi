@@ -8,6 +8,7 @@ import { getSubscriptions } from "./controller/GetSubscription";
 import { getUser } from "./controller/GetUser";
 import { deleteItem } from "./controller/PostDeleteItem";
 import { postItem } from "./controller/PostItem";
+import { postItemRating } from "./controller/PostItemRating";
 import {postUser} from "./controller/PostUser";
 import { UpdateSubscription } from "./controller/UpdateSubscription";
 import { updateUser } from "./controller/UpdateUser";
@@ -85,5 +86,10 @@ export const AppRoutes = [
         path: "/subscription/status",
         method: "post",
         action: UpdateSubscription
+    },
+    {
+        path: "/rating",
+        method: "post",
+        action: postItemRating
     }
 ];

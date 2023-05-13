@@ -11,7 +11,7 @@ export async function getUser(req:$Request, res:Response) {
         throw ApiError.badRequest("Please provide valid details");
     const userRep = orm.getRepository(User);
     const user = await userRep.findOne({ where: { id: userId.toString() } ,relations:[
-        'type'
+        'type',
     ]});
     if (!user)
         throw ApiError.badRequest("No User found");
