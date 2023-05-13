@@ -15,7 +15,9 @@ export default class Subscription {
     @PrimaryGeneratedColumn()
     id: number;
     
-    @ManyToOne(()=> Item)
+    @ManyToOne(()=> Item,{
+        onDelete: "CASCADE"
+    })
     item: Item;
 
     @Column()
@@ -42,4 +44,11 @@ export default class Subscription {
         }
     )
     status: SubscriptionStatus;
+
+    @Column(
+        { 
+            default: 0
+        }
+    )
+    distance: number;
 }
