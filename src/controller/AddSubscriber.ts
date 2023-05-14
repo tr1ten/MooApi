@@ -42,7 +42,7 @@ export async function addSubscription(req: $Request, res: Response) {
     const [lat, long] = buyer.user.location.split(",");
     const [lat2, long2] = item.catalogue.seller.user.location.split(",");
     const dist = getDistanceFromLatLonInKm( Number(lat), Number(long), Number(lat2), Number(long2));
-    subs.distance = dist;
+    subs.distance = dist || 0;
     try {
         await subscriptionRep.save(subs);
         return res.send({
