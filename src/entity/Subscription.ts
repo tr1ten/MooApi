@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, Tree } from "typeorm";
 import { Buyer } from "./Buyer";
 import Item from "./Item";
 import ItemType from "./ItemType";
@@ -27,12 +27,7 @@ export default class Subscription {
     @ManyToOne(()=> Buyer)
     buyer: Buyer;
     
-    @CreateDateColumn(
-        {
-            type: "timestamp",
-            default: () => "CURRENT_TIMESTAMP(6)",
-        }
-    )
+    @CreateDateColumn()
     createdAt: Date;
 
     @OneToMany(()=> Payment, payment => payment.subscription)

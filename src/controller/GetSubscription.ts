@@ -47,7 +47,7 @@ export async function getSubscriptions(req: $Request, res: Response) {
           },
         },
       },
-      relations: ["item.type", "item.catalogue", "buyer", "buyer.user","item.ratings","item.ratings.buyer"],
+      relations: ["item.type", "item.catalogue", "buyer", "buyer.user","buyer.user.type","item.ratings","item.ratings.buyer"],
     });
     return res.send(subscriptions);
   }

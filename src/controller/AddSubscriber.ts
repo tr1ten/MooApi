@@ -21,6 +21,7 @@ export async function addSubscription(req: $Request, res: Response) {
         "catalogue",
         "catalogue.seller",
         "catalogue.seller.user",
+        "catalogue.seller.user.type"
     ]
     }); 
     if (!item)

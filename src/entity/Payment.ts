@@ -12,12 +12,5 @@ export default class Payment{
     @ManyToOne(()=> Subscription)
     subscription: Subscription;
 
-    @CreateDateColumn(
-        {
-            type: "timestamp",
-            default: () => "CURRENT_TIMESTAMP(6)",
-        }
-    )
-    createdAt: Date;
 
 }

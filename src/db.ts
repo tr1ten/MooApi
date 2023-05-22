@@ -17,7 +17,7 @@ require("dotenv").config()
 const env = process.env
 
 export const AppDataSource = new DataSource({
-    type: "mariadb",
+    type: "mssql",
     host:  env.SQL_HOST,
     port: parseInt(env.SQL_PORT),
     username:  env.SQL_USER,
